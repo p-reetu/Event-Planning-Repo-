@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event type</title>
+    <style>
+        .topnav{
+            overflow: hidden; background-color: rgb(46, 0, 46); width:100%;
+        }
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding:10px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover{
+            background-color: rgb(78, 0, 78);
+        }
+        .dropdown .dropbtn {
+            font-size: 17px;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 242);
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .abc{
+            height:90%;
+            width: 90%; 
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        .logo{
+            height: 50px;
+            width: 50px;
+        }
+        h1{
+            text-align:center;
+        }
+        .evesuper{
+            overflow: hidden; background-color: rgb(255, 255, 242); width:100%;
+            align-items: center;
+            margin:auto;
+        }
+        .eve-typeb{
+            background-image:url("{{url_for('static', filename='bday.jpg')}}");
+            background-size: 100% 100%;
+            color: #f9f9f9;
+            height: 298px;
+            width: 298px;
+            border: 5px solid rgb(255, 255, 242);
+            text-align: center;
+            display:inline-block;
+        }
+        .eve-typew{
+            background-image:url("{{url_for('static', filename='wed.jpg')}}");
+            background-size: 100% 100%;
+            color: #f9f9f9;
+            height: 298px;
+            width: 298px;
+            border: 5px solid rgb(255, 255, 242);
+            text-align: center;
+            display:inline-block;
+        }
+        .eve-typec{
+            background-image:url("{{url_for('static', filename='conf.jpg')}}");
+            background-size: 100% 100%;
+            color: #f9f9f9;
+            height: 298px;
+            width: 298px;
+            border: 5px solid rgb(255, 255, 242);
+            text-align: center;
+            display:inline-block;
+        }
+        .eve-typev{
+            background-image:url("{{url_for('static', filename='vir.jpg')}}");
+            background-size: 100% 100%;
+            color: #f9f9f9;
+            height: 298px;
+            width: 298px;
+            border: 5px solid rgb(255, 255, 242);
+            text-align: center;
+            display:inline-block;
+        }
+        h3{
+            margin-top:20%;
+            margin-bottom: auto;
+        }
+        .body{
+            background-color: rgb(255, 255, 242)
+        }
+    </style>
+</head>
+<body class="body">
+    <nav class="topnav" >
+        <div class="dropdown">
+            <div class="logo">
+                <img class="abc" src="{{url_for('static', filename='logo_final.jpg')}}" />
+                <i class="fa fa-caret-down"></i>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Services
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">Catering Services<br>Traveling Assistance<br>Decorating Partners<br>Music Collections</div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Events
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <table>
+                      <tr>
+                          <th>Informal Events</th>
+                          <th>Formal Events</th>
+                          <th>Virtual Events</th>
+                      </tr>
+                      <tr>
+                            <td>Weddings</td>
+                            <td>Seminars</td>
+                      </tr>
+                      <tr>
+                            <td>Birthdays</td>
+                            <td>Conferences</td>
+                      </tr>
+                  </table>
+              </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">About us
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">Sample Text talking about about us</div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Our Team
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content"><p>SB team's hard work, dedication, and in-depth background knowledge <br>will always ensure that the event is one to remember.<br>
+                You can rest assured that they have everything covered from start to finish.</p></div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Contact us
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">E-mail : SilverBeats@gmail.com<br>Social Media : @silverbeats<br>Phone : 1234567890/2987654321<br><a href="/contact">know more</a></div>
+        </div>
+    </nav>
+    <br>
+    <h1>PLEASE  SELECT THE EVENT  TYPE</h1>
+    <div class="evesuper">
+        <div class="eve-typeb">
+            <br><br><br><br><a href="/birthday" style="color: #f9f9f9;"><h3>Birthdays</h3></a>
+        </div>
+        <div class="eve-typew">
+            <br><br><br><br><a href="/wedding" style="color: #f9f9f9;"><h3>Weddings</h3></a>
+        </div>
+        <div class="eve-typev" >
+            <br><br><br><br><a href="/Virtual events" style="color: #f9f9f9;"><h3>Virtual Events</h3></a>
+        </div>
+        <div class="eve-typec" >
+            <br><br><br><br><a href="/ConferenceAndSeminar" style="color: #f9f9f9;"><h3>Seminars</h3></a>
+        </div>
+    </div>
+</body>
+</html>

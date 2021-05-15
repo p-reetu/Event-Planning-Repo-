@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Contact Us</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: rgb(46, 0, 46);
+            width: 100%;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover {
+            background-color: rgb(78, 0, 78);
+        }
+
+        .dropdown .dropbtn {
+            font-size: 17px;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 242);
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .logo {
+            height: 50px;
+            width: 50px;
+        }
+
+
+        .abcd {
+            background-size: 100% 100%;
+            height: 50%;
+            width: 60%;
+
+        }
+
+        .body {
+            background-color: rgb(255, 255, 242)
+        }
+
+        .abc {
+            height: 100%;
+            width: 100%;
+            align-items: center;
+        }
+
+
+        /* Style inputs */
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        /* Style the container/contact section */
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+        /* Create two columns that float next to eachother */
+        .column {
+            float: left;
+            width: 50%;
+            margin-top: 6px;
+            padding: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+
+            .column,
+            input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+
+        .bottomdiv {
+            position: bottom;
+            color: white;
+            background-image: linear-gradient(rgb(46, 0, 46), rgb(95, 0, 95));
+        }
+        .body{
+            background-color: rgb(255, 255, 242)
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="topnav">
+        <div class="dropdown">
+            <div class="logo">
+                  <img class="abc" src="{{url_for('static', filename='Logonew.jpg')}}" />
+                <i class="fa fa-caret-down"></i>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Services
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">Catering Services<br>Traveling Assistance<br>Decorating Partners<br>Music
+                Collections</div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Events
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <table>
+                    <tr>
+                        <th>Informal Events</th>
+                        <th>Formal Events</th>
+                        <th>Virtual Events</th>
+                    </tr>
+                    <tr>
+                        <td>Weddings</td>
+                        <td>Seminars</td>
+                    </tr>
+                    <tr>
+                        <td>Birthdays</td>
+                        <td>Conferences</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">About us
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">Sample Text talking about about us</div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Our Team
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <p>SB team's hard work, dedication, and in-depth background knowledge <br>will always ensure that the
+                    event is one to remember.<br>
+                    You can rest assured that they have everything covered from start to finish.</p>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Contact us
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">E-mail : SilverBeats@gmail.com<br>Social Media : @silverbeats<br>Phone :
+                1234567890/2987654321</div>
+        </div>
+        <div class="dropdown" Style="float: right;">
+            <button class="dropbtn" onclick="openlogin()">
+                Register/Sign In
+                <i class="fa fa-caret-down"></i>
+            </button>
+        </div>
+    </nav>
+    <div class="container">
+        <div style="text-align:center">
+            <h2>Contact Us</h2>
+            <p>Feel free to contact us on phone or email</p>
+        </div>
+        <div class="row">
+            <div class="column">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15090.677735967702!2d73.1276701!3d18.990201!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc1c5d5badc610f5f!2sPillai%20College%20of%20Engineering%2C%20New%20Panvel!5e0!3m2!1sen!2sin!4v1619012316302!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" ></iframe>
+            </div>
+            <div class="container">
+                <div class="contactInfo">
+                    <div class="box">
+                        <div class="icon"><span class="material-icons">
+                                location_on
+                            </span>
+                        </div>
+                        <div class="text">
+                            <h3>Address</h3>
+                            <p>Dr. K. M. Vasudevan Pillai Campus,<br>Plot No. 10, Sector 16, New Panvel East,<br> Navi
+                                Mumbai, Maharashtra 410206</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><span class="material-icons">
+                                phone
+                            </span></div>
+                        <div class="text">
+                            <h3>Phone Number</h3>
+                            <p>1234567890/2987654321</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><span class="material-icons">
+                                contact_mail
+                            </span></div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p>SilverBeats@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottomdiv">
+        <table style="text-align: left;">
+            <tr>
+                <th>
+                    <h3>Services</h3>
+                </th>
+                <th>
+                    <h3>Products</h3>
+                </th>
+                <th>
+                    <h3>Team</h3>
+                </th>
+                <th>
+                    <h3>Office</h3>
+                </th>
+                <th>
+                    <h3>Contact</h3>
+                </th>
+            </tr><br>
+            <tr>
+                <td>Virtual Events</td>
+                <td>Catering Services &nbsp &nbsp</td>
+                <td>Hosting Team</td>
+                <td>Andheri East, Mumbai &nbsp &nbsp</td>
+                <td>E-mail : SilverBeats@gmail.com</td>
+            </tr><br>
+            <tr>
+                <td>Destination Events &nbsp &nbsp</td>
+                <td>Music Partners</td>
+                <td>Marketing Team &nbsp &nbsp</td>
+                <td>Panvel, Navi Mumbai &nbsp &nbsp</td>
+                <td>Phone &nbsp: 1234567890 / 2987654321</td>
+            </tr><br>
+            <tr>
+                <td>Formal Events</td>
+                <td>Travel assistance</td>
+            </tr>
+        </table> <br> <br>
+        <div style="text-align: center;">
+            Copyright © 2021 Silver Beats | All Rights Reserved
+        </div>
+    </div>
+</body>

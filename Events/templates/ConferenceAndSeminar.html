@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference And Seminars</title>
+    <style>
+        .topnav {
+            overflow: hidden;
+            background-color: rgb(46, 0, 46);
+            width: 100%;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover {
+            background-color: rgb(78, 0, 78);
+        }
+
+        .dropdown .dropbtn {
+            font-size: 17px;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 242);
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .logo {
+            height: 50px;
+            width: 50px;
+        }
+
+        .section {
+            position: relative;
+            height: 10vh;
+        }
+
+        .section .section-center {
+            position: absolute;
+            top: 30%;
+            left: 0;
+            right: 0;
+            -webkit-transform: translateY(-1%);
+            transform: translateY(-1%)
+        }
+
+        #booking {
+            font-family: 'Raleway', sans-serif
+        }
+
+        .booking-form {
+            position: relative;
+            max-width: 642px;
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+            overflow: hidden;
+            background-image: url('https://i.pinimg.com/236x/d9/1d/22/d91d22640c2d5e75a7669137a1e5439a--conference-chairs-conference-room.jpg');
+
+
+            background-size: cover;
+            border-radius: 5px;
+            z-index: 20
+        }
+
+        .booking-form::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1
+        }
+
+        .booking-form .form-header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 30px
+        }
+
+        .booking-form .form-header h2 {
+            font-weight: 700;
+            text-transform: capitalize;
+            font-size: 42px;
+            margin: 0px;
+            color: #fff
+        }
+
+        .booking-form .form-group {
+            position: relative;
+            margin-bottom: 30px
+        }
+
+        .booking-form .form-control {
+            background-color: rgba(255, 255, 255, 0.2);
+            height: 30px;
+            width: 50%;
+            padding: 0px 20px;
+            border: none;
+            border-radius: 40px;
+            color: #fff;
+            -webkit-box-shadow: 0px 0px 0px 2px transparent;
+            box-shadow: 0px 0px 0px 2px transparent;
+            -webkit-transition: 0.2s;
+            transition: 0.2s;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        .booking-form .form-control::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, 0.5)
+        }
+
+        .booking-form .form-control:-ms-input-placeholder {
+            color: rgba(255, 255, 255, 0.5)
+        }
+
+        .booking-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5)
+        }
+
+        .booking-form .form-control:focus {
+            -webkit-box-shadow: 0px 0px 0px 2px #ff8846;
+            box-shadow: 0px 0px 0px 2px #ff8846
+        }
+
+        .booking-form input[type="date"].form-control {
+            padding-top: 0px
+        }
+
+        .booking-form input[type="date"].form-control:invalid {
+            color: rgba(255, 255, 255, 0.5)
+        }
+
+        .booking-form input[type="date"].form-control+.form-label {
+            opacity: 1;
+            top: 10px
+        }
+
+        .booking-form select.form-control {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        .booking-form select.form-control:invalid {
+            color: rgba(255, 255, 255, 0.5)
+        }
+
+        .booking-form select.form-control+.select-arrow {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 50%;
+            line-height: 32px;
+            height: 32px;
+            text-align: center;
+            pointer-events: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px
+        }
+
+        .booking-form select.form-control+.select-arrow:after {
+            content: '\279C';
+            display: block;
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+        .booking-form select.form-control option {
+            color: #000
+        }
+
+        .checkbox-label {
+            color: #ffffff;
+            text-align: center;
+            margin-left: 220px;
+        }
+
+        input[type="checkbox"] {
+            vertical-align: middle;
+        }
+
+        .booking-form .form-label {
+            position: absolute;
+            top: -10px;
+            left: 25px;
+            opacity: 0;
+            color: #ff8846;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+            height: 15px;
+            line-height: 15px;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all
+        }
+
+        .booking-form .form-group.input-not-empty .form-control {
+            padding-top: 16px
+        }
+
+        .booking-form .form-group.input-not-empty .form-label {
+            opacity: 1;
+            top: 10px
+        }
+
+        .checkbox-inline {
+            vertical-align: middle;
+            margin-left: 140px;
+            margin-right: auto;
+
+        }
+
+        .booking-form .submit-btn {
+            color: #fff;
+            background-color: #e76615;
+            font-weight: 700;
+            height: 60px;
+            padding: 10px 30px;
+            width: 100%;
+            border-radius: 40px;
+            border: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            letter-spacing: 1.3px;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all
+        }
+
+        .booking-form .submit-btn:hover,
+        .booking-form .submit-btn:focus {
+            opacity: 0.9
+        }
+
+        .form-popup {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: rgb(255, 255, 242);
+            margin: 15% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            align-items: center;
+            text-align: center;
+            border: 1px solid rgb(46, 0, 46);
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .abcd {
+            background-size: 100% 100%;
+            height: 50%;
+            width: 60%;
+
+        }
+
+        .body {
+            background-color: rgb(255, 255, 242)
+        }
+
+        .abc {
+            height: 100%;
+            width: 100%;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<nav class="topnav">
+    <div class="dropdown">
+        <div class="logo">
+            <img class="abc" src="{{url_for('static', filename='Logonew.jpg')}}" />
+            <i class="fa fa-caret-down"></i>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Services
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">Catering Services<br>Traveling Assistance<br>Decorating Partners<br>Music
+            Collections</div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Events
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <table>
+                <tr>
+                    <th>Informal Events</th>
+                    <th>Formal Events</th>
+                    <th>Virtual Events</th>
+                </tr>
+                <tr>
+                    <td>Weddings</td>
+                    <td>Seminars</td>
+                </tr>
+                <tr>
+                    <td>Birthdays</td>
+                    <td>Conferences</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">About us
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">Sample Text talking about about us</div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Our Team
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <p>SB team's hard work, dedication, and in-depth background knowledge <br>will always ensure that the
+                event is one to remember.<br>
+                You can rest assured that they have everything covered from start to finish.</p>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Contact us
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">E-mail : SilverBeats@gmail.com<br>Social Media : @silverbeats<br>Phone :
+            1234567890/2987654321</div>
+    </div>
+    <div class="dropdown" Style="float: right;">
+        <button class="dropbtn" onclick="openlogin()">
+            Register/Sign In
+            <i class="fa fa-caret-down"></i>
+        </button>
+    </div>
+</nav>
+
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <h2>Conference And Seminars</h2>
+                    </div>
+                    <form>
+                        <div class="form-group"> <input class="form-control" type="text"
+                                placeholder="Enter the title of the event"> <span class="form-label">Title of the
+                                event</span> </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group"> <select class="form-control" required>
+                                    <option value="" selected hidden>Type of Event</option>
+                                    <option>Conference</option>
+                                    <option>Seminars</option>
+
+                                </select> <span class="select-arrow"></span> <span class="form-label">Type of
+                                    Event</span> </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="date" required> <span
+                                        class="form-label"></span></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <input class="form-control" type="time" required
+                                        placeholder="Select time"> <span class="form-label">Select time</span>
+                                </div>
+                                <div class="form-group"> <input class="form-control" type="text"
+                                        placeholder="Enter the name of Sponsors"> <span class="form-label">Name
+                                        of sponsors
+                                    </span> </div>
+                                <div class="form-group"> <input class="form-control" type="text"
+                                        placeholder="Enter the name of key note speaker"> <span class="form-label">Name
+                                        of speaker
+                                    </span> </div>
+                                <div class="form-group"> <input class="form-control" type="number"
+                                        placeholder="Enter the budget of the event"> <span class="form-label">budget
+                                    </span> </div>
+
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group"> <select class="form-control" required>
+                                        <option value="" selected hidden>no of guests</option>
+                                        <option>10 to 20</option>
+                                        <option>20 to 50</option>
+                                        <option>50+</option>
+                                    </select> <span class="select-arrow"></span> <span class="form-label">Guests</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group"> <select class="form-control" required>
+                                        <option value="" selected hidden>Catering service</option>
+                                        <option>Lunch</option>
+                                        <option>Dinner</option>
+                                        <option>Snacks</option>
+                                    </select> <span class="select-arrow"></span> <span class="form-label">Food</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-label">Please select type of <a href="#" onclick="openpop()"
+                                        style="color: white; text-decoration: none;">venue</a></label><br>
+                                <div class="form-group"> <select class="form-control" required>
+                                        Please select event <a href="#" onclick="openpop()"
+                                            style="color: white; text-decoration: none;">venue
+                                        </a> (Click on the venue to see types of venue) <br>
+
+                                        <option value="" selected hidden>Types of venues</option>
+                                        <option>Auditorium</option>
+                                        <option>Hotels </option>
+
+                                        <option>Blank Canvas venues</option>
+                                        <option>Business Centres</option>
+                                        <option>Unique and Special Venues</option>
+                                        <option>Other Venus</option>
+
+                                    </select> <span class="select-arrow"></span> <span class="form-label"></span>venue
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group"> <select class="form-control" required>
+                                        <option value="" selected hidden>Additional Services</option>
+                                        <option>Wifi facility</option>
+                                        <option>AV Equipment</option>
+                                        <option>Booklets</option>
+                                        <option>Entertainment</option>
+                                        <option>Goodies</option>
+
+                                        <option>Desks</option>
+                                        <option>Other</option>
+
+                                    </select> <span class="select-arrow"></span> <span class="form-label">Guests</span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"> <input class="form-control" type="email"
+                                            placeholder="Enter your Email"> <span class="form-label">Email</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> <input class="form-control" type="tel"
+                                            placeholder="Enter your Phone"> <span class="form-label">Phone</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-btn"> <button class="submit-btn">Book Now</button> </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br>
+<div class="form-popup" id="popForm">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img class="abcd" src="{{url_for('static', filename='BdayThemes.jpg')}}" />
+    </div>
+</div>
+<script>
+    var span = document.getElementsByClassName("close")[0];
+
+    function openpop() {
+        document.getElementById("popForm").style.display = "block";
+    }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        document.getElementById("popForm").style.display = "none";
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .topnav{
+            overflow: hidden; background-color: rgb(46, 0, 46); width:100%;
+        }
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding:10px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover{
+            background-color: rgb(78, 0, 78);
+        }
+        .dropdown .dropbtn {
+            font-size: 17px;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 242);
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .logo{
+            height: 50px;
+            width: 50px;
+        }
+        .abc{
+            height:90%;
+            width: 90%; 
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        .login-box {
+        width: 100%;
+        margin: auto;
+        max-width: 525px;
+        min-height: 670px;
+        position: relative;
+        align-items: center;
+        background: url(https://images.unsplash.com/photo-1507208773393-40d9fc670acf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80) no-repeat center;
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19)
+        }
+        .login-snip {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            padding: 90px 70px 50px 70px;
+            background: rgba(46, 0, 46, 0.9)
+        }
+
+        .login-snip .login,
+        .login-snip .sign-up-form {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+            transition: all .4s linear
+        }
+
+        .login-snip .sign-in,
+        .login-snip .sign-up,
+        .login-space .group .check {
+            display: none
+        }
+
+        .login-snip .tab,
+        .login-space .group .label,
+        .login-space .group .button {
+            text-transform: uppercase
+        }
+
+        .login-snip .tab {
+            font-size: 22px;
+            margin-right: 15px;
+            padding-bottom: 5px;
+            margin: 0 15px 10px 0;
+            display: inline-block;
+            border-bottom: 2px solid transparent
+        }
+
+        .login-snip .sign-in:checked+.tab,
+        .login-snip .sign-up:checked+.tab {
+            color: #fff;
+            border-color: #e76615
+        }
+
+        .login-space {
+            min-height: 345px;
+            position: relative;
+            perspective: 1000px;
+            transform-style: preserve-3d
+        }
+
+        .login-space .group {
+            margin-bottom: 15px
+        }
+
+        .login-space .group .label,
+        .login-space .group .input,
+        .login-space .group .button {
+            width: 100%;
+            color: #fff;
+            display: block
+        }
+
+        .login-space .group .input,
+        .login-space .group .button {
+            border: none;
+            padding: 15px 20px;
+            border-radius: 25px;
+            background: rgba(46, 0, 46)
+        }
+
+        .login-space .group input[data-type="password"] {
+            
+            -webkit-text-security: circle
+        }
+
+        .login-space .group .label {
+            color: #aaa;
+            font-size: 12px
+        }
+
+        .login-space .group .button {
+            background: #e76615
+        }
+
+        .login-space .group label .icon {
+            width: 15px;
+            height: 15px;
+            border-radius: 2px;
+            position: relative;
+            display: inline-block;
+            background: rgba(255, 255, 255, .1)
+        }
+
+        .login-space .group label .icon:before,
+        .login-space .group label .icon:after {
+            content: '';
+            width: 10px;
+            height: 2px;
+            background: #fff;
+            position: absolute;
+            transition: all .2s ease-in-out 0s
+        }
+
+        .login-space .group label .icon:before {
+            left: 3px;
+            width: 5px;
+            bottom: 6px;
+            transform: scale(0) rotate(0)
+        }
+
+        .login-space .group label .icon:after {
+            top: 6px;
+            right: 0;
+            transform: scale(0) rotate(0)
+        }
+
+        .login-space .group .check:checked+label {
+            color: #fff
+        }
+
+        .login-space .group .check:checked+label .icon {
+            background: #e76615
+        }
+
+        .login-space .group .check:checked+label .icon:before {
+            transform: scale(1) rotate(45deg)
+        }
+
+        .login-space .group .check:checked+label .icon:after {
+            transform: scale(1) rotate(-45deg)
+        }
+
+        .login-snip .sign-in:checked+.tab+.sign-up+.tab+.login-space .login {
+            transform: rotate(0)
+        }
+
+        .login-snip .sign-up:checked+.tab+.login-space .sign-up-form {
+            transform: rotate(0)
+        }
+
+        *,
+        :after,
+        :before {
+            box-sizing: border-box
+        }
+
+        .clearfix:after,
+        .clearfix:before {
+            content: '';
+            display: table
+        }
+
+        .clearfix:after {
+            clear: both;
+            display: block
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .hr {
+            height: 2px;
+            margin: 60px 0 50px 0;
+            background: rgba(46, 0, 46,.5)
+        }
+
+        .foot {
+            text-align: center;
+            color : white;
+        }
+
+        .card {
+            width: 500px;
+            left: 100px
+        }
+
+        ::placeholder {
+            color: #b3b3b3
+        }
+        .card{
+            margin:auto;
+            float:center;
+        }
+        .form-popup{
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        .modal-content {
+        background-color: rgb(255, 255, 242);
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        align-items: center;
+        text-align:center;
+        border: 1px solid rgb(46, 0, 46);
+        width: 80%; /* Could be more or less, depending on screen size */
+        }
+        .evesuper{
+            overflow: hidden; background-color: rgb(255, 255, 242); width:100%;
+            align-items: center;
+            margin:auto;
+        }
+        .eve-typeb{
+            background-image:url("{{url_for('static', filename='bday.jpg')}}");
+            background-size: 100% 100%;
+            color: #f9f9f9;
+            height: 237px;
+            width: 237px;
+            float:left;
+            border: 5px solid rgb(255, 255, 242);
+            text-align: center;
+        }
+        .eve-typew{
+            background-image:url("{{url_for('static', filename='wed.jpg')}}");
+            background-size: 100% 100%;
+            color: #f9f9f9;
+            height: 237px;
+            width: 237px;
+            float:left;
+            border: 5px solid rgb(255, 255, 242);
+            text-align: center;
+        }
+        .eve-typec{
+            background-image:url("{{url_for('static', filename='conf.jpg')}}");
+            background-size: 100% 100%;
+            color: #f9f9f9;
+            height: 237px;
+            width: 237px;
+            float:left;
+            border: 5px solid rgb(255, 255, 242);
+            text-align: center;
+        }
+        .eve-typev{
+            background-image:url("{{url_for('static', filename='vir.jpg')}}");
+            background-size: 100% 100%;
+            color: #f9f9f9;
+            height: 237px;
+            width: 237px;
+            float:left;
+            border: 5px solid rgb(255, 255, 242);
+            text-align: center;
+        }
+        .body{
+            background-color: rgb(255, 255, 242)
+        }
+    </style>
+</head>
+<body class= "body">
+    <nav class="topnav" >
+        <div class="dropdown">
+            <div class="logo">
+                <img class="abc" src="{{url_for('static', filename='logo_final.jpg')}}" />
+                <i class="fa fa-caret-down"></i>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Services
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">Catering Services<br>Traveling Assistance<br>Decorating Partners<br>Music Collections</div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Events
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <table>
+                      <tr>
+                          <th>Informal Events</th>
+                          <th>Formal Events</th>
+                          <th>Virtual Events</th>
+                      </tr>
+                      <tr>
+                            <td>Weddings</td>
+                            <td>Seminars</td>
+                      </tr>
+                      <tr>
+                            <td>Birthdays</td>
+                            <td>Conferences</td>
+                      </tr>
+                  </table>
+              </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">About us
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">Sample Text talking about about us</div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Our Team
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content"><p>SB team's hard work, dedication, and in-depth background knowledge <br>will always ensure that the event is one to remember.<br>
+                You can rest assured that they have everything covered from start to finish.</p></div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Contact us
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">E-mail : SilverBeats@gmail.com<br>Social Media : @silverbeats<br>Phone : 1234567890/2987654321</div>
+        </div>
+    </nav><br>
+    <div class="row" >
+        <div class="col-md-6 mx-auto p-0">
+            <div class="card" >
+                <div class="login-box">
+                    <div class="login-snip"> <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label> <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                        <div class="login-space">
+                            <form method="POST">
+                                <div class="login">
+                                    <div class="group"> <label for="pass" class="label">Email Address</label> <input id="pass" type="text" class="input" placeholder="Enter your email address" name="semail"> </div>
+                                    <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" type="password" class="input" data-type="password" placeholder="Enter your password" name="spass"> </div>
+                                    <div class="group"> <input id="check" type="checkbox" class="check" checked> <label for="check"><span class="icon"></span> Keep me Signed in</label> </div>
+                                    <div class="group"> <button type="submit" class="button" value="Sign In" >Sign In</button> </div>
+                                    <div class="hr"></div>
+                                    <div class="foot"> <a href="#">Forgot Password?</a> </div>
+                                </div>
+                            </form>
+                            <form method="POST">
+                                <div class="sign-up-form">
+                                    <div class="group"> <label for="pass" class="label">Email Address</label> <input id="pass" type="text" class="input" placeholder="Enter your email address" name="remail"> </div>
+                                    <div class="group"> <label for="pass" class="label">Password</label> <input id="pass" type="password" class="input" data-type="password" placeholder="Create your password" name="rpass"> </div>
+                                    <div class="group"> <label for="pass" class="label">Repeat Password</label> <input id="pass" type="password" class="input" data-type="password" placeholder="Repeat your password" name="rconpass"> </div>
+                                    <div class="group"> <button type="submit" class="button" value="Sign Up">Sign Up</button> </div>
+                                    <div class="hr"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-popup" id="popForm">
+        <div class="modal-content">
+          <p><h3>Please select the type of event</h3></p>
+          <div class="evesuper">
+                <div class="eve-typeb">
+                    <br><br><br><br><a href="/birthday" style="color: #f9f9f9;"><h3>Birthdays</h3></a>
+                </div>
+                <div class="eve-typew">
+                    <br><br><br><br><a href="/wedding" style="color: #f9f9f9;"><h3>Weddings</h3></a>
+                </div>
+                <div class="eve-typev" style = "float:right">
+                    <br><br><br><br><a href="/Virtual events" style="color: #f9f9f9;"><h3>Virtual Events</h3></a>
+                </div>
+                <div class="eve-typec" style="float: right;">
+                    <br><br><br><br><a href="/ConferenceAndSeminar" style="color: #f9f9f9;"><h3>Seminars</h3></a>
+                </div>
+          </div>
+        </div>
+    </div>
+    <script>
+        function openlogin() {
+          window.location.href = "/Login";
+        }
+        function openpop(){
+            document.getElementById("popForm").style.display= "block";
+        }
+    </script>
+</body>
+</html>
