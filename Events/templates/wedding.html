@@ -67,7 +67,7 @@
             margin: auto;
             padding: 20px;
             overflow: hidden;
-            background-image: url("https://i.pinimg.com/originals/ed/31/ac/ed31ac4cdd6a762cff984659c6786e0d.jpg");
+            background-image: url("https://i.pinimg.com/736x/b5/bf/26/b5bf26cb07d16e961c034d2d0458fba7.jpg");
             background-size: cover;
             border-radius: 5px;
             z-index: 20
@@ -80,7 +80,7 @@
             right: 0;
             bottom: 0;
             top: 0;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(46, 0, 46, 0.85);
             z-index: -1
         }
 
@@ -191,7 +191,7 @@
         .checkbox-label{
             color: #ffffff;
             text-align: center;
-            margin-left:20px;
+            margin-left:10px;
         }
         input[type="checkbox"]
 {
@@ -297,14 +297,14 @@
         .body{
             background-color: rgb(255, 255, 242)
         }
-        
+
     </style>
 </head>
 <body class="body">
     <nav class="topnav" >
         <div class="dropdown">
             <div class="logo">
-                <img class="abc" src="{{url_for('static', filename='Logonew.jpg')}}" />
+                <img class="abc" src="{{url_for('static', filename='Logo.png')}}">
                 <i class="fa fa-caret-down"></i>
             </div>
         </div>
@@ -362,47 +362,43 @@
             </button>
         </div>
     </nav>
-    
+
         <div id="booking" class="section">
             <div class="section-center">
                 <div class="container">
                     <div class="row">
                         <div class="booking-form">
                             <div class="form-header">
-                                <h2>Get Your Wedding Planned</h2>
+                                <h2>Wedding Day Questionnaire</h2>
                             </div>
-                            <form>
-                                <div class="form-group"> <input class="form-control" type="text" placeholder="Enter the location address"> <span class="form-label">Destination</span> </div>
+                            <form method ="POST">
+                                <div class="form-group"> <input class="form-control" type="text" placeholder="Enter the name" name="wname" required> </div>
+                                <div class="form-group"> <input class="form-control" type="text" placeholder="Enter the location address" name="wvenue" required> <span class="form-label">Destination</span> </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group"> <input class="form-control" type="date" required> <span class="form-label"></span></div>
+                                        <div class="form-group"> <input class="form-control" type="date" name="wdate" required> <span class="form-label"></span></div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group"> <input class="form-control" type="time" required placeholder="Select time"> <span class="form-label">Select time</span> </div>
+                                        <div class="form-group"> <input class="form-control" type="time" name="wtime" required placeholder="Select time"> <span class="form-label">Select time</span> </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <div class="form-group"> <select class="form-control" required>
-                                                <option value="" selected hidden>Number of guests</option>
-                                                <option>upto 100</option>
-                                                <option>upto 500</option>
-                                                <option>500+</option>
-                                            </select> <span class="select-arrow"></span> <span class="form-label">Guests</span> </div>
+                                        <div class="form-group"> <input class="form-control" type="int" placeholder="no of guests" name="wguests" required>  </div>
                                     </div>
                                 <div class="row">
                                     <div class="col-md-4 col-md-6">
                                         <label class="checkbox-label"> Catering Service :</label><br><br>
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox"
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" name="check1" value="Breakfast"
                                     class="custom-control-input"> <label for="customCheck1"
                                     class="checkbox-label">Breakfast</label> </div>
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox"
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" name="check1" value="Lunch"
                                     class="custom-control-input"> <label for="customCheck1"
                                     class="checkbox-label">Lunch</label> </div>
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox"
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" name="check1" value="Dinner"
                                     class="custom-control-input"> <label for="customCheck1"
                                     class="checkbox-label">Dinner</label> </div>
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox"
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" name="check1" value="Snacks"
                                     class="custom-control-input"> <label for="customCheck1"
                                     class="checkbox-label">Snacks</label> </div>
                                     </div>
@@ -410,7 +406,7 @@
 
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <div class="form-group"> <select class="form-control" required>
+                                        <div class="form-group"> <select class="form-control" name="writuals" required>
                                         <option value="" selected hidden>Rituals</option>
                                         <option>Assamese</option>
                                         <option>Bengali</option>
@@ -430,35 +426,35 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label class="checkbox-label"> Special Events/Services :</label><br><br>
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox"
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" name="check2" value="Creating and Delivering Invitation Cards"
                                     class="custom-control-input"> <label for="customCheck1"
                                     class="checkbox-label">Creating and Delivering Invitation Cards</label> </div>
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox"
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" name="check2" value="Dance"
                                     class="custom-control-input"> <label for="customCheck1"
                                     class="checkbox-label">Dance</label> </div>
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox"
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" name="check2" value="Orchestra"
                                     class="custom-control-input"> <label for="customCheck1"
                                     class="checkbox-label">Orchestra</label> </div>
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox"
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" name="check2" value="Photographer"
                                     class="custom-control-input"> <label for="customCheck1"
                                     class="checkbox-label">Photographer</label> </div>
                             </div>
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox"
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" name="check2" value="Cake"
                                     class="custom-control-input"> <label for="customCheck1"
                                     class="checkbox-label">Cake Cutting</label> </div>
                             </div>
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox"
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" name="check2" value="Gifts"
                                     class="custom-control-input"> <label for="customCheck1"
                                     class="checkbox-label">Return Gifts</label> </div>
                             </div>
-                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox"
+                            <div class="custom-control custom-checkbox mb-4"> <input id="customCheck1" type="checkbox" name="check2" value="None"
                                     class="custom-control-input"> <label for="customCheck1"
                                     class="checkbox-label">None</label> </div>
                                 </div>
                                 <br>
                                     <div class="col-md-4">
                                         <label class="checkbox-label"> Please select event <a href="#" onclick="openpop()" style="color: white; text-decoration: none;">theme</a> (Click on theme to view) </label><br>
-                                        <div class="form-group"> <select class="form-control" required>
+                                        <div class="form-group"> <select class="form-control" name="wtheme" required>
                                              Please select event <a href="#" onclick="openpop()" style="color: white; text-decoration: none;">theme</a> (Click on theme to view) <br>
                                                 <option value="" selected hidden>Decoration service</option>
                                                 <option>Fairy Tale</option>
@@ -475,13 +471,22 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group"> <input class="form-control" type="email" placeholder="Enter your Email"> <span class="form-label">Email</span> </div>
+                                        <div class="form-group"> <input class="form-control" type="email" placeholder="Enter your Email" name="wemail" required> <span class="form-label">Email</span> </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group"> <input class="form-control" type="tel" placeholder="Enter your Phone"> <span class="form-label">Phone</span> </div>
+                                        <div class="form-group"> <input class="form-control" type="tel" placeholder="Enter your Phone" name="wphone" required> <span class="form-label">Phone</span> </div>
                                     </div>
                                 </div>
-                                <div class="form-btn"> <button class="submit-btn">Book Now</button> </div>
+                                <div class="row">
+                                    <div class="" style="text-align:center; color:white" >Book appointment with coordinator</div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control" type="date" name="wappdate" required> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control" type="time" name ="wapptime" required > </div>
+                                    </div>
+                                </div>
+                                <div class="form-btn"> <button class="submit-btn" onclick="openrec()">Book Now</button> </div>
                             </form>
                         </div>
                     </div>
@@ -492,11 +497,15 @@
             <div class="modal-content">
                 <span class="close" >&times;</span>
                 <img class="abcd" src="{{url_for('static', filename='all_themes.jpg')}}" />
-        </div>    
+            </div>
+        </div>
     <script>
         var span = document.getElementsByClassName("close")[0];
         function openpop(){
             document.getElementById("popForm").style.display= "block";
+        }
+        function openrec(){
+          window.location.href = "/receiptw";
         }
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
