@@ -204,7 +204,7 @@
         .checkbox-label {
             color: #ffffff;
             text-align: center;
-            margin-left: 220px;
+            margin-left: 140px;
         }
 
         input[type="checkbox"] {
@@ -333,7 +333,8 @@
 <nav class="topnav">
     <div class="dropdown">
         <div class="logo">
-            <img class="abc" src="{{url_for('static', filename='Logonew.jpg')}}" />
+            <img class="abc"
+                src="{{url_for('static', filename='Logo.png')}}">
             <i class="fa fa-caret-down"></i>
         </div>
     </div>
@@ -403,15 +404,15 @@
             <div class="row">
                 <div class="booking-form">
                     <div class="form-header">
-                        <h2>Conference And Seminars</h2>
+                        <h2>Book your Event</h2>
                     </div>
-                    <form>
-                        <div class="form-group"> <input class="form-control" type="text"
+                    <form method="POST">
+                        <div class="form-group"> <input class="form-control" type="text" name="ctitle"
                                 placeholder="Enter the title of the event"> <span class="form-label">Title of the
                                 event</span> </div>
 
                         <div class="col-md-4">
-                            <div class="form-group"> <select class="form-control" required>
+                            <div class="form-group"> <select class="form-control" name="ctype" required>
                                     <option value="" selected hidden>Type of Event</option>
                                     <option>Conference</option>
                                     <option>Seminars</option>
@@ -422,40 +423,32 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="date" required> <span
+                                <div class="form-group"> <input class="form-control" type="date" name="cdate" required> <span
                                         class="form-label"></span></div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group"> <input class="form-control" type="time" required
+                                <div class="form-group"> <input class="form-control" type="time" name="ctime" required
                                         placeholder="Select time"> <span class="form-label">Select time</span>
                                 </div>
-                                <div class="form-group"> <input class="form-control" type="text"
+                                <div class="form-group"> <input class="form-control" type="text" name="cspsname"
                                         placeholder="Enter the name of Sponsors"> <span class="form-label">Name
                                         of sponsors
                                     </span> </div>
-                                <div class="form-group"> <input class="form-control" type="text"
+                                <div class="form-group"> <input class="form-control" type="text" name="cspkname"
                                         placeholder="Enter the name of key note speaker"> <span class="form-label">Name
                                         of speaker
                                     </span> </div>
-                                <div class="form-group"> <input class="form-control" type="number"
+                                <div class="form-group"> <input class="form-control" type="number" name="cbudget"
                                         placeholder="Enter the budget of the event"> <span class="form-label">budget
                                     </span> </div>
-
-
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-group"> <select class="form-control" required>
-                                        <option value="" selected hidden>no of guests</option>
-                                        <option>10 to 20</option>
-                                        <option>20 to 50</option>
-                                        <option>50+</option>
-                                    </select> <span class="select-arrow"></span> <span class="form-label">Guests</span>
-                                </div>
+                                <div class="form-group"> <input class="form-control" type="int" placeholder="no of guests" name="cguests" required>  </div>
                             </div>
                             <div class="col-md-4">
-                                <div class="form-group"> <select class="form-control" required>
+                                <div class="form-group"> <select class="form-control" name="ccate" required>
                                         <option value="" selected hidden>Catering service</option>
                                         <option>Lunch</option>
                                         <option>Dinner</option>
@@ -463,74 +456,58 @@
                                     </select> <span class="select-arrow"></span> <span class="form-label">Food</span>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <label class="checkbox-label">Please select type of <a href="#" onclick="openpop()"
-                                        style="color: white; text-decoration: none;">venue</a></label><br>
-                                <div class="form-group"> <select class="form-control" required>
-                                        Please select event <a href="#" onclick="openpop()"
-                                            style="color: white; text-decoration: none;">venue
-                                        </a> (Click on the venue to see types of venue) <br>
-
-                                        <option value="" selected hidden>Types of venues</option>
-                                        <option>Auditorium</option>
-                                        <option>Hotels </option>
-
-                                        <option>Blank Canvas venues</option>
-                                        <option>Business Centres</option>
-                                        <option>Unique and Special Venues</option>
-                                        <option>Other Venus</option>
-
-                                    </select> <span class="select-arrow"></span> <span class="form-label"></span>venue
-                                </div>
-                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="form-group"> <select class="form-control" required>
+                                <div class="form-group"> <select class="form-control" name="cservices" required>
                                         <option value="" selected hidden>Additional Services</option>
                                         <option>Wifi facility</option>
                                         <option>AV Equipment</option>
                                         <option>Booklets</option>
                                         <option>Entertainment</option>
                                         <option>Goodies</option>
-
                                         <option>Desks</option>
                                         <option>Other</option>
 
-                                    </select> <span class="select-arrow"></span> <span class="form-label">Guests</span>
+                                    </select> <span class="select-arrow"></span> <span class="form-label">Services</span>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group"> <input class="form-control" type="email"
+                                    <div class="form-group"> <input class="form-control" type="email" name="cemail"
                                             placeholder="Enter your Email"> <span class="form-label">Email</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group"> <input class="form-control" type="tel"
+                                    <div class="form-group"> <input class="form-control" type="tel" name="cphone"
                                             placeholder="Enter your Phone"> <span class="form-label">Phone</span>
                                     </div>
-                                </div>
+                                </div><div class="row">
+                                    <div class="" style="text-align:center; color:white" >Book appointment with coordinator</div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control" type="date" name="cappdate" required> </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group"> <input class="form-control" type="time" name ="capptime" required > </div>
+                                    </div>
+
                             </div>
-                            <div class="form-btn"> <button class="submit-btn">Book Now</button> </div>
+                            <div class="form-btn"> <button class="submit-btn" onclick="openrec()">Book Now</button> </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div><br>
-<div class="form-popup" id="popForm">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <img class="abcd" src="{{url_for('static', filename='BdayThemes.jpg')}}" />
-    </div>
-</div>
 <script>
     var span = document.getElementsByClassName("close")[0];
 
     function openpop() {
         document.getElementById("popForm").style.display = "block";
+    }
+    function openrec(){
+          window.location.href = "/receiptcs";
     }
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
