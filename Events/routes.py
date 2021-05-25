@@ -8,26 +8,53 @@ connection=psycopg2.connect(POSTGRESQL_URI)
 try:
     with connection:
         with connection.cursor() as cursor:
-            cursor.execute("CREATE TABLE BDAYTB(tbname TEXT, tbvenue TEXT, tbdate TEXT, tbtime TEXT, tbguests INT, tbcate TEXT, tbtheme TEXT, tbemail TEXT, tbphone INT, tbappdate TEXT, tbapptime TEXT);")
+            cursor.execute("CREATE TABLE BDAYTB(tbid TEXT PRIMARY KEY, tbname TEXT, tbvenue TEXT, tbdate TEXT, tbtime TEXT, tbguests INT, tbcate TEXT, tbtheme TEXT, tbemail TEXT, tbphone INT, tbappdate TEXT, tbapptime TEXT);")
 except psycopg2.errors.DuplicateTable:
     pass
 
 @app.route('/')
 @app.route('/home')
 def homepage():
+    '''with connection:
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT tbguests FROM BDAYTB order by tbdate desc limit 1;")
+                test = []
+                test = cursor.fetchall()
+                num = test[0]
+                print(num[0]+1)
+                print('B'+str(num[0]+1))'''
     return render_template('homepage.html')
+
+@app.route('/About Us')
+def au():
+    return render_template('AboutUs.html')
 
 @app.route('/contact')
 def con():
-    return render_template('contact.html')
+    return render_template('contactus.html')
 
 @app.route('/birthday', methods=["GET","POST"])
 def birthdayy():
+    try:
+        with connection:
+                with connection.cursor() as cursor:
+                    cursor.execute("SELECT tbid FROM BDAYTB order by tbid desc limit 1;")
+                    test = []
+                    test = cursor.fetchall()
+                    num = test[0]
+                    s1 = num[0]
+                    s2 = 'B'
+                    if s1.startswith(s2):
+                        s3 = s1.replace(s2, '')
+                    imp = int(s3)+1
+    except:
+        imp=1
     if request.method == "POST":
         with connection:
             with connection.cursor() as cursor:
-                cursor.execute("INSERT INTO BDAYTB VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", 
+                cursor.execute("INSERT INTO BDAYTB VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);", 
                             (
+                                'B'+str(imp),
                                 request.form.get("bname"),
                                 request.form.get("bvenue"),
                                 request.form.get("bdate"),
@@ -48,7 +75,7 @@ def birthdayy():
 def rec():
     with connection:
             with connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM BDAYTB order by tbdate desc limit 1;")
+                cursor.execute("SELECT * FROM BDAYTB order by tbid desc limit 1;")
                 bevent = cursor.fetchall()
     return render_template('receipt.jinja2', evententries=bevent)
 
@@ -88,9 +115,15 @@ def ConferenceAndSeminar():
 def wedding():
     return render_template('wedding.html')
 
-@app.route('/Virtual events')
+@app.route('/Virtual events', methods=["GET","POST"])
 def virtual():
+    if request.method == "POST":
+        return redirect(url_for('vir'))
     return render_template('virtual.html')
+
+@app.route('/book it')
+def vir():
+    return render_template('virtualeve.html') 
     
 @app.route('/payment')
 def pay():
