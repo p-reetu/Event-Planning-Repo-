@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <style>
+        .imp{
+            background-image:url("{{url_for('static', filename='logo_bg1.png')}}");
+            background-size: 100% 100%;
+            opacity:0.2;
+        }
+        .main-div{
+            color:rgb(46,0,46);
+            margin: auto;
+            width: 50%;
+            height: 50%;
+            border:2px solid black;
+            text-align:center;
+            padding: 20px;
+            font-size: 18px;
+            background-image:url("{{url_for('static', filename='logo_bg1.png')}}");
+            background-size: 100% 100%;
+            //background-color:yellow;
+        }
+        .comp-div{
+            color:rgb(46,0,46);
+            
+        }
+        .param{
+            width:130px;
+            display:inline-block;
+            padding:3px;
+            text-align:left;
+        }
+        .col{
+            width:5px;
+            display:inline-block;
+            padding:3px;
+        }
+        .val{
+            width:150px;
+            display:inline-block;
+            padding:3px;
+            text-align:left;
+        }
+        .app-div{
+            text-align: center;
+        }
+        .in{
+            display:inline-block;
+        }
+        .abc{
+            width:10%;
+            height:10%;
+        }
+        .body{
+            background-color: rgb(255, 255, 242);
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+      
+    <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js">
+    </script>
+</head>
+<body class="body">
+    <center>
+    <h2 style="text-align: center;">Receipt</h2>
+    {% for i in evententries %}
+       <div class="main-div" id="download">
+            <div class="in">
+            <img class="abc" src="{{url_for('static', filename='logo_bg.png')}}" />
+            <h2 style="text-align:center;">SILVER BEATS EVENT PLANNERS</h2> </div>
+            <div class="comp-div">
+                <div class="param">Event ID</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[0] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Title of the event</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[1] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Type of the event</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[2] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Date</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[3] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Time</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[4] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Name of Sponsers</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[5] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Name of Speaker</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[6] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Budget</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[7] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Number of Guest</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[8] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Catering Service</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[9] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Additional Services</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[10] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Email</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[11] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Phone</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[12] }}</div><br>
+            </div>
+            <br>
+            <div class="app-div">
+                Appointment details: <br><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Date</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[12] }}</div><br>
+            </div>
+            <div class="comp-div">
+                <div class="param">Time</div> 
+                <div class="col">:</div> 
+                <div class="val">{{ i[13] }}</div><br>
+            </div>
+            <br>
+            </div><br>
+            <div>Thank you for being the member of silver beats family! 
+            We hope to get many more opportunities in future to host and plan a successful event for you. Stay safe and enjoy!</div>
+       </div>
+    {% endfor %}
+    
+    <script>
+       $('#download-png').click(function(){
+            html2canvas($('#download'), 
+             {
+                onrendered: function (canvas) {
+                var a = document.createElement('a');
+                    a.href = canvas.toDataURL("image/png");       
+                    a.download = 'image.png';
+                    a.click();
+                }
+             });
+            });
+    </script>
+    </center>
+</body>
+</html>
