@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Event</title>
+    <!-- AddEvent script -->
+    <script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
+
+    <!-- AddEvent Settings -->
+    <script type="text/javascript">
+    window.addeventasync = function(){
+        addeventatc.settings({
+            //appleical  : {show:true, text:"Apple Calendar"},
+            google     : {show:true, text:"Google <em>(online)</em>"},
+            office365  : {show:true, text:"Office 365 <em>(online)</em>"},
+            outlook    : {show:true, text:"Outlook"},
+            outlookcom : {show:true, text:"Outlook.com <em>(online)</em>"},
+            yahoo      : {show:true, text:"Yahoo <em>(online)</em>"}
+        });
+    };
+    </script>
+
+    <style>
+        .topnav{
+            overflow: hidden; background-color: rgb(46, 0, 46); width:100%;
+        }
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            padding:10px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover{
+            background-color: rgb(78, 0, 78);
+        }
+        .dropdown .dropbtn {
+            font-size: 17px;
+            border: none;
+            outline: none;
+            color: rgb(255, 255, 242);
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .logo{
+            height: 50px;
+            width: 50px;
+        }
+        .abc{
+            height:90%;
+            width: 90%; 
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        .body{
+            background-color: rgb(255, 255, 242)
+        }
+    </style>
+</head>
+<body class="body">
+
+    <nav class="topnav" >
+        <div class="dropdown">
+            <div class="logo">
+                <img class="abc" src="{{url_for('static', filename='logo_final.jpg')}}" />
+                <i class="fa fa-caret-down"></i>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Services
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">Catering Services<br>Traveling Assistance<br>Decorating Partners<br>Music Collections</div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Events
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <table>
+                      <tr>
+                          <th>Informal Events</th>
+                          <th>Formal Events</th>
+                          <th>Virtual Events</th>
+                      </tr>
+                      <tr>
+                            <td>Weddings</td>
+                            <td>Seminars</td>
+                      </tr>
+                      <tr>
+                            <td>Birthdays</td>
+                            <td>Conferences</td>
+                      </tr>
+                  </table>
+              </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">About us
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">Sample Text talking about about us</div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Our Team
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content"><p>SB team's hard work, dedication, and in-depth background knowledge <br>will always ensure that the event is one to remember.<br>
+                You can rest assured that they have everything covered from start to finish.</p></div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Contact us
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">E-mail : SilverBeats@gmail.com<br>Social Media : @silverbeats<br>Phone : 1234567890/2987654321</div>
+        </div>
+    </nav>
+    <br><br>
+    <h1 style="text-align: center;">Thank You for booking your event !!!</h1>
+    <h4 style="text-align: center;">Now add the event to your calender by clicking the button below</h4>
+    <!-- Button code -->
+    <div style="margin-left:auto; margin-right: auto; width:99%; display:block;" >
+    <div title="Add to Calendar" class="addeventatc" style="background-color:#ff8846; margin-left :43%; margin-right: 40%; width:10%">
+        Add to Calendar
+        <span class="start">05/31/2021 08:00 AM</span>
+        <span class="end">05/31/2021 10:00 AM</span>
+        <span class="timezone">America/Los_Angeles</span>
+        <span class="title">Summary of the event</span>
+        <span class="description">Description of the event</span>
+        <span class="location">Location of the event</span>
+    </div>
+    </div>
+</body>
+</html>
